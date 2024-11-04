@@ -48,19 +48,24 @@ typedef unsigned long long int  uint64;
 #define MOD 1000000007
 
 void solve(){
-
-    int a, b;
-    cin>>a>>b;
-    if(a%2==0 && a>0){
-        cout<<"YES"<<endl;
+    int n, m;
+    cin>>n>>m;
+    string s;
+    cin>>s;
+    map<char, int> mp;
+    for(int i=65; i<=71; i++){
+        mp[(char)i] = 0;
     }
-    else if(a==0 && b%2==0){
-        cout<<"YES"<<endl;
+    for(int i=0;i<n;i++){
+        mp[s[i]]++;
     }
-    else{
-        cout<<"NO"<<endl;
+    int ans = 0;
+    for(auto x: mp){
+        if(x.second<m){
+            ans += m-x.second;
+        }
     }
-
+    cout<<ans<<endl;
 }
 
 
